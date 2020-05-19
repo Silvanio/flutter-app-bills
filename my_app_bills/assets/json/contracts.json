@@ -1,0 +1,20 @@
+[
+    {
+        "accountNumber": "2",
+        "address": {
+            "city": "Lisboa",
+            "cp3": "313",
+            "cp4": "1750",
+            "district": ".Lisboa",
+            "local": "Lisboa",
+            "parish": "R. Antonio Lopes Ribeiro",
+            "port": "4",
+            "postalCodeLocal": "Lisboa",
+            "street": "R. Antonio Lopes Ribeiro"
+        },
+        "cil": "39",
+        "clientName": "António Rodrigues Silva",
+        "clientNumber": "9555"
+    }
+
+]

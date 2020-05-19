@@ -1,0 +1,110 @@
+[
+    {
+        "consumption": 5.09,
+        "deadlinePayment": "2020-06-10T00:00:00+01:00",
+        "factors": 0.0,
+        "invoiceNumber": "20050790000000999",
+        "invoiceReference": "079.DP.20050790000000999",
+        "isLiquidated": false,
+        "issueDate": "2020-05-11T00:00:00+01:00",
+        "iva": 1.2,
+        "othersValues": 0.0,
+        "paymentData": {
+            "entity": "21557",
+            "finishDate": "2020-06-10T00:00:00+01:00",
+            "reference": "564879",
+            "value": 18.39
+        },
+        "rates": 0.0
+    },
+    {
+        "consumption": 5.09,
+        "deadlinePayment": "2020-05-10T00:00:00+01:00",
+        "factors": 0.0,
+        "invoiceNumber": "20050790000001099",
+        "invoiceReference": "079.DP.20050790000001099",
+        "isLiquidated": true,
+        "issueDate": "2020-04-11T00:00:00+01:00",
+        "iva": 1.2,
+        "othersValues": 0.0,
+        "paymentData": {
+            "entity": "21557",
+            "finishDate": "2020-05-10T00:00:00+01:00",
+            "reference": "564979",
+            "value": 20.0
+        },
+        "rates": 0.0
+    },
+    {
+        "consumption": 4.91,
+        "deadlinePayment": "2020-04-10T00:00:00+01:00",
+        "factors": 0.0,
+        "invoiceNumber": "20050790000001199",
+        "invoiceReference": "079.DP.20050790000001199",
+        "isLiquidated": true,
+        "issueDate": "2020-03-11T00:00:00+01:00",
+        "iva": 1.18,
+        "othersValues": 0.0,
+        "paymentData": {
+            "entity": "21557",
+            "finishDate": "2020-04-10T00:00:00+01:00",
+            "reference": "565079",
+            "value": 18.02
+        },
+        "rates": 0.0
+    },
+    {
+        "consumption": 5.09,
+        "deadlinePayment": "2020-03-10T00:00:00+01:00",
+        "factors": 0.0,
+        "invoiceNumber": "20050790000001299",
+        "invoiceReference": "079.DP.20050790000001299",
+        "isLiquidated": true,
+        "issueDate": "2020-02-11T00:00:00+01:00",
+        "iva": 1.2,
+        "othersValues": 0.0,
+        "paymentData": {
+            "entity": "21557",
+            "finishDate": "2020-03-10T00:00:00+01:00",
+            "reference": "565179",
+            "value": 30.0
+        },
+        "rates": 0.0
+    },
+    {
+        "consumption": 5.0,
+        "deadlinePayment": "2020-02-10T00:00:00+01:00",
+        "factors": 0.0,
+        "invoiceNumber": "20050790000001399",
+        "invoiceReference": "079.DP.20050790000001399",
+        "isLiquidated": true,
+        "issueDate": "2020-01-11T00:00:00+01:00",
+        "iva": 1.18,
+        "othersValues": 0.0,
+        "paymentData": {
+            "entity": "21557",
+            "finishDate": "2020-02-10T00:00:00+01:00",
+            "reference": "565279",
+            "value": 15.0
+        },
+        "rates": 0.0
+    },
+    {
+        "consumption": 33.93,
+        "deadlinePayment": "2020-01-10T00:00:00+01:00",
+        "factors": 0.0,
+        "invoiceNumber": "20050790000000899",
+        "invoiceReference": "079.DP.20050790000000899",
+        "isLiquidated": true,
+        "issueDate": "2019-12-11T00:00:00+01:00",
+        "iva": 9.22,
+        "othersValues": 0.0,
+        "paymentData": {
+            "entity": "21557",
+            "finishDate": "2020-01-10T00:00:00+01:00",
+            "reference": "564779",
+            "value": 134.59
+        },
+        "rates": 0.0
+    }
+]

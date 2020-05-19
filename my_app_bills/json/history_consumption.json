@@ -1,0 +1,38 @@
+[
+    {
+        "invoiceDate": "2020-05-11T00:00:00+01:00",
+        "readingDate": "2020-04-11T00:00:00+01:00",
+        "source": "R",
+        "value": 5.0
+    },
+    {
+        "invoiceDate": "2020-04-11T00:00:00+01:00",
+        "readingDate": "2020-03-11T00:00:00Z",
+        "source": "R",
+        "value": 5.0
+    },
+    {
+        "invoiceDate": "2020-03-11T00:00:00+01:00",
+        "readingDate": "2020-02-11T00:00:00Z",
+        "source": "R",
+        "value": 5.0
+    },
+    {
+        "invoiceDate": "2020-02-11T00:00:00+01:00",
+        "readingDate": "2020-01-11T00:00:00Z",
+        "source": "R",
+        "value": 5.0
+    },
+    {
+        "invoiceDate": "2020-01-11T00:00:00+01:00",
+        "readingDate": "2019-12-11T00:00:00Z",
+        "source": "P",
+        "value": 19.0
+    },
+    {
+        "invoiceDate": "2019-12-18T00:00:00Z",
+        "readingDate": "2019-11-01T00:00:00Z",
+        "source": "R",
+        "value": 25.0
+    }
+]

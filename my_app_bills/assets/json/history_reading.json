@@ -1,0 +1,44 @@
+[
+    {
+        "estimate": "false",
+        "functionCode": "021",
+        "readingDate": "2020-05-11T00:00:00+01:00",
+        "value": 255.0
+    },
+    {
+        "estimate": "false",
+        "functionCode": "021",
+        "readingDate": "2020-04-11T00:00:00+01:00",
+        "value": 250.0
+    },
+    {
+        "estimate": "false",
+        "functionCode": "021",
+        "readingDate": "2020-03-11T00:00:00Z",
+        "value": 245.0
+    },
+    {
+        "estimate": "false",
+        "functionCode": "021",
+        "readingDate": "2020-02-11T00:00:00Z",
+        "value": 240.0
+    },
+    {
+        "estimate": "false",
+        "functionCode": "021",
+        "readingDate": "2020-01-11T00:00:00Z",
+        "value": 235.0
+    },
+    {
+        "estimate": "false",
+        "functionCode": "021",
+        "readingDate": "2019-12-11T00:00:00Z",
+        "value": 230.0
+    },
+    {
+        "estimate": "false",
+        "functionCode": "021",
+        "readingDate": "2019-11-01T00:00:00Z",
+        "value": 211.0
+    }
+]

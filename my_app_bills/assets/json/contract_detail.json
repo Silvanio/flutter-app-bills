@@ -1,0 +1,53 @@
+{
+    "address": {
+        "city": "Lisboa",
+        "cp3": "313",
+        "cp4": "1750",
+        "district": ".Lisboa",
+        "local": "Lisboa",
+        "parish": "R. Antonio Lopes Ribeiro",
+        "port": "4",
+        "postalCodeLocal": "Lisboa",
+        "street": "R. Antonio Lopes Ribeiro"
+    },
+    "client": {
+        "address": {
+            "city": "Lisboa",
+            "cp3": "313",
+            "cp4": "1750",
+            "district": ".Lisboa",
+            "local": "Lisboa",
+            "parish": "R. Antonio Lopes Ribeiro",
+            "port": "4",
+            "postalCodeLocal": "Lisboa",
+            "street": "R. Antonio Lopes Ribeiro"
+        },
+        "name": "António Rodrigues Silva",
+        "nif": "292000555",
+        "phone": "93 5301636"
+    },
+    "contracts": [
+        {
+            "address": {
+                "city": "Lisboa",
+                "cp3": "313",
+                "cp4": "1750",
+                "district": ".Lisboa",
+                "local": "Lisboa",
+                "parish": "R. Antonio Lopes Ribeiro",
+                "port": "4",
+                "postalCodeLocal": "Lisboa",
+                "street": "R. Antonio Lopes Ribeiro"
+            },
+            "contractNumber": "19010100003",
+            "identificationCode": "39",
+            "productCode": "AG",
+            "startDate": "04-01-1901 00:00:00",
+            "tarifCode": "Domésticos"
+        }
+    ],
+    "directDebit": "true",
+    "electronicInvoice": "false",
+    "iban": "PT50003300000518052948567",
+    "socialTarif": "false"
+}
