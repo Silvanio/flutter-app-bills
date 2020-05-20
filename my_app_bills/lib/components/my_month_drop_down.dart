@@ -72,10 +72,9 @@ class MyMonthDropDownState extends State<MyMonthDropDown> {
 
   @override
   Widget build(BuildContext context) {
-    return _getCardReadingHistory(context);
-  }
-
-  Widget _getCardReadingHistory(BuildContext context) {
+    if(this.selected == null || this.monthSelectModelList == null || this.monthSelectModelList.isEmpty){
+      return Container();
+    }
     return _buildDropDown();
   }
 

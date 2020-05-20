@@ -48,7 +48,6 @@ class CardContractDataState extends State<CardContractData> {
               FittedBox(
                   fit: BoxFit.fitWidth,
                   child: MyLabel(label: S.of(context).lbl_contract_info.toUpperCase(), fontFamily: MyLabel.LIGHT, fontSize: 18, fontWeight: FontWeight.w300)),
-              //MyLabel(label: S.of(context).lbl_paid, fontFamily: MyLabel.REGULAR, fontSize: 14, color: Color(0xff219653))
             ],
           ),
         ],
@@ -74,7 +73,6 @@ class CardContractDataState extends State<CardContractData> {
     );
   }
 
-  /// TODO: pode-se seprar as rows para ser de melhor perceção
   Widget _getBody() {
     return Padding(
         padding: EdgeInsets.only(top: 5, bottom: 10, left: 10),

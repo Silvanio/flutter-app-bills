@@ -112,8 +112,8 @@ class CardConsumptionState extends State<CardConsumption> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <Widget>[
               Container(
                   child: Row(children: <Widget>[
-                //MyLabel(label: S.of(_context).lbl_trend.toUpperCase(), fontSize: 12, fontWeight: FontWeight.w300, fontFamily: MyLabel.LIGHT),
-                //Image(image: new AssetImage("assets/images/ic_trend_down.png"), width: 35, height: 35)
+                MyLabel(label: S.of(_context).lbl_trend.toUpperCase(), fontSize: 12, fontWeight: FontWeight.w300, fontFamily: MyLabel.LIGHT),
+                Image(image: new AssetImage("assets/images/ic_trend_down.png"), width: 35, height: 35)
               ])),
               Container(width: 120, child: _buildDropDown()),
             ]),
