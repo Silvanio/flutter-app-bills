@@ -40,7 +40,6 @@ flutter:
   assets:
     - assets/images/
     - assets/json/
-
   fonts:
     - family: OpenSans
       fonts:

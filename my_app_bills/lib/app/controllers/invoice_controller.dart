@@ -1,12 +1,11 @@
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/models/contract_model.dart';
-import 'package:myutility/app/models/input/client_input.dart';
-import 'package:myutility/app/models/input/invoice_input.dart';
-import 'package:myutility/app/models/invoice_model.dart';
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/app/services/invoice_service.dart';
-import 'package:myutility/app/services/service_locator.dart';
-import 'package:myutility/app/services/company_service.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/models/contract_model.dart';
+import 'package:myAppBills/app/models/input/client_input.dart';
+import 'package:myAppBills/app/models/input/invoice_input.dart';
+import 'package:myAppBills/app/models/invoice_model.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/app/services/invoice_service.dart';
+import 'package:myAppBills/app/services/service_locator.dart';
 
 class InvoiceController {
   ContractDetailModel _contractDetailModel;
@@ -27,9 +26,6 @@ class InvoiceController {
     return getIt<InvoiceService>().getInvoices(invoiceInput);
   }
 
-  Future<dynamic> getCompanyCurrency() async {
-    _currency = await getIt<CompanyService>().getCompanyCurrency();
-  }
 
   ContractDetailModel get getContractDetailModel => _contractDetailModel;
 

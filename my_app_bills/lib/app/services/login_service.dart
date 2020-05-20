@@ -1,9 +1,9 @@
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/utils/Constants.dart' as Constants;
-import 'package:myutility/utils/db_helper.dart';
-import 'package:myutility/utils/my_exception.dart';
-import 'package:myutility/utils/rest_api.dart';
-import 'package:myutility/app/services/service_locator.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/utils/Constants.dart' as Constants;
+import 'package:myAppBills/utils/db_helper.dart';
+import 'package:myAppBills/utils/my_exception.dart';
+import 'package:myAppBills/utils/rest_api.dart';
+import 'package:myAppBills/app/services/service_locator.dart';
 
 class LoginService {
 

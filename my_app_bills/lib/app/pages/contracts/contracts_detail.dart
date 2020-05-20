@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myutility/app/controllers/contracts_controller.dart';
-import 'package:myutility/app/pages/contracts/card_additional_data.dart';
-import 'package:myutility/app/pages/contracts/card_contract_data.dart';
-import 'package:myutility/app/pages/contracts/card_holder_data.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/generated/l10n.dart';
+import 'package:myAppBills/app/controllers/contracts_controller.dart';
+import 'package:myAppBills/app/pages/contracts/card_additional_data.dart';
+import 'package:myAppBills/app/pages/contracts/card_contract_data.dart';
+import 'package:myAppBills/app/pages/contracts/card_holder_data.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/generated/l10n.dart';
 
 class ContractsDetail extends StatefulWidget {
   ContractsDetailState createState() => new ContractsDetailState();

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myutility/components/my_divider_dotted.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/utils/convert.dart';
-import 'package:myutility/utils/type_unit.dart';
+import 'package:myAppBills/components/my_divider_dotted.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/utils/convert.dart';
+import 'package:myAppBills/utils/type_unit.dart';
 
 class ChartTrendConsumption extends StatefulWidget {
   final List<Chart> trendList;

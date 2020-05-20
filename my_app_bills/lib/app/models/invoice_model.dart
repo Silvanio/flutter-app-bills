@@ -1,4 +1,4 @@
-import 'package:myutility/app/models/payment_data_model.dart';
+import 'package:myAppBills/app/models/payment_data_model.dart';
 
 class InvoiceModel {
   double consumption;

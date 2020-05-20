@@ -1,16 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myutility/app/controllers/company_controller.dart';
-import 'package:myutility/app/controllers/contracts_controller.dart';
-import 'package:myutility/components/my_card.dart';
-import 'package:myutility/components/my_expansion_card.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/generated/l10n.dart';
 import 'package:intl/intl.dart';
+import 'package:myAppBills/app/controllers/company_controller.dart';
+import 'package:myAppBills/app/controllers/contracts_controller.dart';
+import 'package:myAppBills/components/my_card.dart';
+import 'package:myAppBills/components/my_expansion_card.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/generated/l10n.dart';
 import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../my_navigator.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -19,7 +17,7 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   CompanyController companyController;
-  ContractsController contractsController;/// proveniente da class menu, é passado por argumento
+  ContractsController contractsController;
 
   PackageInfo _packageInfo = PackageInfo(
     appName: 'Unknown',
@@ -31,20 +29,12 @@ class _SettingsState extends State<Settings> {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   List<Locale> _localeList;
   List<String> _localeLString = [];
-  int _groupValueMarketing = 0, _groupValue1ThirdParty = 1;
-
-  String _gdprMarketingText, _gdprThirdPartyText;
-  bool _gdprMarketingVal, _gdprThirdPartyVal;
-
   @override
   void initState() {
     super.initState();
-
     companyController = new CompanyController();
-
     _populateLocaleValues();
-    //_getPrivacyTexts(); /// colocado no build para dar refresh sempre que se troca a linguagem neste ecra
-    _initPackageInfo();/// versao da app
+    _initPackageInfo();
   }
 
   void _populateLocaleValues() {
@@ -54,38 +44,10 @@ class _SettingsState extends State<Settings> {
     }
   }
 
-  void _getPrivacyTexts() {
-    companyController.getGdprMarketingText().then((text) => {
-
-          setState(() {
-            _gdprMarketingText = companyController.getgdprMarketing;
-          })
-        });
-    companyController.getGdprThirdPartyText().then((text) => {
-
-          setState(() {
-            _gdprThirdPartyText = companyController.getgdprThirdParty;
-          })
-        });
-  }
-
 
   @override
   Widget build(BuildContext context) {
     contractsController = ModalRoute.of(context).settings.arguments;
-    var list = contractsController.getContractDetailModelList;
-    _gdprMarketingVal = list[0].gdprMarketing;
-    _gdprThirdPartyVal = list[0].gdprThirdParty;
-
-    if (_gdprMarketingVal == false) {
-      _groupValueMarketing = 1; // 0 = sim | 1 = não
-    } else _groupValueMarketing = 0;
-
-    if (_gdprThirdPartyVal == false) {
-      _groupValue1ThirdParty = 1; // 0 = sim | 1 = não
-    } else _groupValue1ThirdParty = 0;
-
-    _getPrivacyTexts();
 
     return Scaffold(
       appBar: AppBar(
@@ -105,8 +67,6 @@ class _SettingsState extends State<Settings> {
                       _buildLanguages(),
                       Divider(endIndent: 15, indent: 15, color: Color(0xffe0e0e0)),
                       _buildPriv(companyController),
-                      Divider(endIndent: 15, indent: 15, color: Color(0xffe0e0e0)),
-                      _buildLegalWarnings(),
                       Divider(endIndent: 15, indent: 15, color: Color(0xffe0e0e0)),
                       _buildAbout()
                     ])))),
@@ -151,105 +111,24 @@ class _SettingsState extends State<Settings> {
   }
 
   Widget _buildPriv(CompanyController companyController) {
-    String texto1, texto2, texto3;
-    texto1 =
-        'Lorem ipsum dolor sit amet, amet sint dolores vel in. In option propriae rationibus nec, his cu exerci utroque gubergren. Suas vocent graecis ex sed. Sed ei regione fastidii delicatissimi. Eum in decore deseruisse, nam facilis similique in.';
-    texto2 = _gdprMarketingText;
-    texto3 = _gdprThirdPartyText;
 
     return MyExpansionCard(
       header: _getHeader(S.of(context).lbl_privacy.toUpperCase(), false),
       isCard: false,
       bodyChildren: <Widget>[
-        /*Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16),
-          child: MyLabel(label: texto1, fontFamily: MyLabel.REGULAR, fontSize: 15),
-        ),
-        SizedBox(height: 10),*/
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),
-          child: MyLabel(label: texto2, fontFamily: MyLabel.REGULAR, fontSize: 15),
-        ),
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: _myRadioButton(
-                title: S.of(context).lbl_yes,
-                value: 0,
-                onChanged: null /*(newValue) => setState(() => _groupValue = newValue)*/,
-              ),
-            ),
-            Expanded(
-              child: _myRadioButton(
-                title: S.of(context).lbl_no,
-                value: 1,
-                onChanged: null /*(newValue) => setState(() => _groupValue = newValue)*/,
-              ),
-            ),
-          ],
+          child: MyLabel(label: "Teste1", fontFamily: MyLabel.REGULAR, fontSize: 15),
         ),
         SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),
-          child: MyLabel(label: texto3, fontFamily: MyLabel.REGULAR, fontSize: 15),
-        ),
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: _myRadioButton1(
-                title: S.of(context).lbl_yes,
-                value: 0,
-                onChanged: null /*(newValue) => setState(() => _groupValue1 = newValue)*/,
-              ),
-            ),
-            Expanded(
-              child: _myRadioButton1(
-                title: S.of(context).lbl_no,
-                value: 1,
-                onChanged: null /*(newValue) => setState(() => _groupValue1 = newValue)*/,
-              ),
-            ),
-          ],
+          child: MyLabel(label: "Teste1", fontFamily: MyLabel.REGULAR, fontSize: 15),
         ),
       ],
     );
   }
 
-  Widget _myRadioButton({String title, int value, Function onChanged}) {
-    return RadioListTile(
-      value: value,
-      activeColor: Colors.black,
-      groupValue: _groupValueMarketing,
-      onChanged: onChanged,
-      title: MyLabel(label: title, fontFamily: MyLabel.REGULAR, fontSize: 15),
-    );
-  }
-
-  Widget _myRadioButton1({String title, int value, Function onChanged}) {
-    return RadioListTile(
-      value: value,
-      activeColor: Colors.black,
-      groupValue: _groupValue1ThirdParty,
-      onChanged: onChanged,
-      title: MyLabel(label: title, fontFamily: MyLabel.REGULAR, fontSize: 15),
-    );
-  }
-
-  Widget _buildLegalWarnings() {
-    return ExpansionTile(
-        initiallyExpanded: false,
-        trailing: Padding(padding: EdgeInsets.all(0), child: Icon(null)),
-        title: Padding(
-          padding: EdgeInsets.only(top: 5, bottom: 10),
-          child: _getHeader(S.of(context).lbl_legal_warnings.toUpperCase(), true),
-        ),
-        onExpansionChanged: (value) {
-          setState(() {
-            Navigator.pop(context);
-            MyNavigator.goToLegalWarnings(context);
-          });
-        });
-  }
 
   Widget _buildAbout() {
     return MyExpansionCard(

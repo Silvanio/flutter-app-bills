@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myutility/app/models/invoice_model.dart';
-import 'package:myutility/components/my_expansion_card.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/generated/l10n.dart';
-import 'package:myutility/utils/convert.dart';
+import 'package:myAppBills/app/models/invoice_model.dart';
+import 'package:myAppBills/components/my_expansion_card.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/generated/l10n.dart';
+import 'package:myAppBills/utils/convert.dart';
 
 // ignore: must_be_immutable
 class CardUnPaid extends Container {

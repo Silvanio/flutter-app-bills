@@ -1,12 +1,11 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:myutility/app/controllers/contracts_controller.dart';
-import 'package:myutility/app/controllers/home_controller.dart';
-import 'package:myutility/generated/l10n.dart';
-import 'package:myutility/my_navigator.dart';
-import 'package:myutility/style/login_style.dart';
-import 'package:myutility/utils/convert.dart';
+import 'package:myAppBills/app/controllers/company_controller.dart';
+import 'package:myAppBills/app/controllers/contracts_controller.dart';
+import 'package:myAppBills/app/controllers/home_controller.dart';
+import 'package:myAppBills/generated/l10n.dart';
+import 'package:myAppBills/my_navigator.dart';
+import 'package:myAppBills/style/login_style.dart';
+import 'package:myAppBills/utils/convert.dart';
 
 class Menu extends Drawer {
   final HomeController homeController;
@@ -17,7 +16,8 @@ class Menu extends Drawer {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ClipRRect(
-        borderRadius: BorderRadius.only(topRight: const Radius.circular(10.0), bottomRight: const Radius.circular(10.0)),
+        borderRadius:
+            BorderRadius.only(topRight: const Radius.circular(10.0), bottomRight: const Radius.circular(10.0)),
         child: new Drawer(
           child: Column(
             children: <Widget>[
@@ -25,25 +25,15 @@ class Menu extends Drawer {
                 child: UserAccountsDrawerHeader(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: MemoryImage(base64Decode(homeController.getCompanyModel.dashboardImg)),
+                      image: AssetImage("assets/images/banner.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
                   accountName: Text(
-                    homeController.getCompanyModel.companyName,
+                    CompanyController.currentCompany.companyName,
                     style: kTextStyleBoldBlackTitle,
                   ),
-                  //accountName: Text(this.homeController.getContractDetailModel.client.name),
                   accountEmail: Text(this.homeController.getLoginModel.company),
-                  /*currentAccountPicture:
-                  CircleAvatar(
-                    radius: 1,
-                    backgroundColor: Colors.white,
-                    child: Text(
-                      this.homeController.getContractDetailModel.client.name.substring(0, 1),
-                      style: TextStyle(fontSize: 40.0),
-                    ),
-                  ),*/
                 ),
                 height: 100,
               ),
@@ -61,21 +51,12 @@ class Menu extends Drawer {
                               .client
                               .name
                               .substring(0, this.homeController.getContractDetailModel.client.name.indexOf(' ')))),
-                      //onTap: () => _openContracts(context)
                     ),
                     Divider(),
                     new ListTile(
                         leading: ImageIcon((new AssetImage("assets/images/ic_contract.png"))),
                         title: Text(S.of(context).lbl_speel_contracts.toUpperCase()),
                         onTap: () => _openContracts(context)),
-                    //Divider(),
-                    new ListTile(
-                        leading: ImageIcon((new AssetImage("assets/images/ic_contact.png"))),
-                        title: Text(S.of(context).lbl_contacts.toUpperCase()),
-                        onTap: () => _openContacts(context)),
-                    //Divider(),
-                    //new ListTile(leading: ImageIcon(new AssetImage("assets/images/ic_aviso_legal.png")), title: Text(S.of(context).lbl_legal_warnings.toUpperCase()), onTap: () => _openLegalWarnings(context)),
-                    //Divider(),
                     new ListTile(
                         leading: ImageIcon((new AssetImage("assets/images/ic_settings.png"))),
                         title: Text(S.of(context).lbl_settings.toUpperCase()),
@@ -124,11 +105,6 @@ class Menu extends Drawer {
     controller.setContractDetailModelList = homeController.getContractDetailModelList;
     Navigator.pop(context);
     MyNavigator.goToContractList(context, contractsController: controller);
-  }
-
-  void _openContacts(BuildContext context) {
-    Navigator.pop(context);
-    MyNavigator.goToContacts(context);
   }
 
   void _openSettings(BuildContext context) {

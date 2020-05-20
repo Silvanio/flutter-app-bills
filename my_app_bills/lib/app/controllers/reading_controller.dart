@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/models/contract_model.dart';
-import 'package:myutility/app/models/input/client_input.dart';
-import 'package:myutility/app/models/input/reading_input.dart';
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/app/models/meters_model.dart';
-import 'package:myutility/app/models/reading_model.dart';
-import 'package:myutility/app/models/send_reading_model.dart';
-import 'package:myutility/app/services/login_service.dart';
-import 'package:myutility/app/services/meters_service.dart';
-import 'package:myutility/app/services/reading_service.dart';
-import 'package:myutility/app/services/service_locator.dart';
-import 'package:myutility/utils/constants.dart';
-import 'package:myutility/utils/convert.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/models/contract_model.dart';
+import 'package:myAppBills/app/models/input/client_input.dart';
+import 'package:myAppBills/app/models/input/reading_input.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/app/models/meters_model.dart';
+import 'package:myAppBills/app/models/reading_model.dart';
+import 'package:myAppBills/app/models/send_reading_model.dart';
+import 'package:myAppBills/app/services/login_service.dart';
+import 'package:myAppBills/app/services/meters_service.dart';
+import 'package:myAppBills/app/services/reading_service.dart';
+import 'package:myAppBills/app/services/service_locator.dart';
+import 'package:myAppBills/utils/constants.dart';
+import 'package:myAppBills/utils/convert.dart';
 
 class ReadingController {
   LoginModel _loginModel;

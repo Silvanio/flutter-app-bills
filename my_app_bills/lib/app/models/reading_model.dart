@@ -1,6 +1,6 @@
 
-import 'package:myutility/app/models/meters_model.dart';
-import 'package:myutility/utils/convert.dart';
+import 'package:myAppBills/app/models/meters_model.dart';
+import 'package:myAppBills/utils/convert.dart';
 
 class ReadingModel {
   bool estimate;

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myutility/app/controllers/contracts_controller.dart';
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/generated/l10n.dart';
-import 'package:myutility/my_navigator.dart';
-import 'package:myutility/style/contact&warning_style.dart';
-import 'package:myutility/utils/convert.dart';
-import 'package:myutility/utils/type_contract.dart';
+import 'package:myAppBills/app/controllers/contracts_controller.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/generated/l10n.dart';
+import 'package:myAppBills/my_navigator.dart';
+import 'package:myAppBills/style/contact&warning_style.dart';
+import 'package:myAppBills/utils/convert.dart';
+import 'package:myAppBills/utils/type_contract.dart';
 
 class ContractsList extends StatefulWidget {
   @override

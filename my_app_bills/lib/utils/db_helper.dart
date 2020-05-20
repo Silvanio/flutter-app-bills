@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:myutility/app/models/company_model.dart';
-import 'package:myutility/app/models/login_model.dart';
+
+import 'package:myAppBills/app/models/login_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DbHelper {
@@ -19,14 +19,11 @@ class DbHelper {
   DbHelper.internal();
 
   initDb() async {
-    var theDb = await openDatabase("myutility.db", version: 1, onCreate: _onCreate);
+    var theDb = await openDatabase("myAppBills.db", version: 1, onCreate: _onCreate);
     return theDb;
   }
 
   void _onCreate(Database db, int version) async {
     await db.execute(LoginModel.create);
-    await db.execute(CompanyModel.create);
-    await db.execute(CompanyContactModel.create);
-    await db.execute(CompanyLegalWarningModel.create);
   }
 }

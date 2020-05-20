@@ -1,18 +1,18 @@
-import 'package:myutility/app/models/consumption_model.dart';
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/models/input/client_input.dart';
-import 'package:myutility/app/models/input/consumption_input.dart';
-import 'package:myutility/app/models/input/invoice_input.dart';
-import 'package:myutility/app/models/invoice_model.dart';
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/app/models/meters_model.dart';
-import 'package:myutility/app/pages/dashbord/chart_trend_consumption.dart';
-import 'package:myutility/utils/convert.dart';
-import 'package:myutility/app/services/consumption_service.dart';
-import 'package:myutility/app/services/service_locator.dart';
-import 'package:myutility/utils/type_unit.dart';
-import 'package:myutility/app/services/invoice_service.dart';
-import 'package:myutility/app/services/company_service.dart';
+import 'package:myAppBills/app/controllers/company_controller.dart';
+import 'package:myAppBills/app/models/consumption_model.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/models/input/client_input.dart';
+import 'package:myAppBills/app/models/input/consumption_input.dart';
+import 'package:myAppBills/app/models/input/invoice_input.dart';
+import 'package:myAppBills/app/models/invoice_model.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/app/models/meters_model.dart';
+import 'package:myAppBills/app/pages/dashbord/chart_trend_consumption.dart';
+import 'package:myAppBills/app/services/consumption_service.dart';
+import 'package:myAppBills/app/services/invoice_service.dart';
+import 'package:myAppBills/app/services/service_locator.dart';
+import 'package:myAppBills/utils/convert.dart';
+import 'package:myAppBills/utils/type_unit.dart';
 
 class ConsumptionController {
   LoginModel _loginModel;
@@ -25,13 +25,12 @@ class ConsumptionController {
 
     List<Chart> chartList = new List<Chart>();
 
-    String currency = await getIt<CompanyService>().getCompanyCurrency();
+    String currency = CompanyController.currentCompany.currency;
     List<ConsumptionModel> consumptionList = await getConsumptionCountMonth(month);
     if (consumptionList != null && consumptionList.isNotEmpty) {
       countPageInvoices = consumptionList.length > month ? consumptionList.length : month;
-      List<InvoiceModel> invoiceList =await getAllPaymentsBy(consumptionList.last.invoiceDate,
-              countStartPage.toString(),
-              countPageInvoices.toString());
+      List<InvoiceModel> invoiceList = await getAllPaymentsBy(
+          consumptionList.last.invoiceDate, countStartPage.toString(), countPageInvoices.toString());
       if ((consumptionList != null && consumptionList.isNotEmpty) && (invoiceList != null && invoiceList.isNotEmpty)) {
         List<ChartLine> lineConsumptionList = mountConsumptionLine(consumptionList);
         List<ChartLine> lineInvoiceList = mountInvoiceLine(invoiceList, currency);
@@ -160,7 +159,8 @@ class ConsumptionController {
         endDate: MyConvert.formatDatePattern(now, "yyyy-MM-dd"),
         startDate: MyConvert.formatDatePattern(start, "yyyy-MM-dd"));
 
-    List<ConsumptionModel> list = await getIt<ConsumptionService>().getConsumptionList(consumptionInput).catchError((error, stackTrace) {
+    List<ConsumptionModel> list =
+        await getIt<ConsumptionService>().getConsumptionList(consumptionInput).catchError((error, stackTrace) {
       return null;
     });
 

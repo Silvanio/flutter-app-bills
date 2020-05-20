@@ -1,15 +1,15 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myutility/app/controllers/home_controller.dart';
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/models/contract_model.dart';
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/my_navigator.dart';
-import 'package:myutility/utils/convert.dart';
+import 'package:myAppBills/app/controllers/home_controller.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/models/contract_model.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/my_navigator.dart';
+import 'package:myAppBills/utils/convert.dart';
 
 class Welcome extends StatefulWidget {
   @override
@@ -18,7 +18,7 @@ class Welcome extends StatefulWidget {
 
 class _WelcomeState extends State<Welcome> {
   HomeController homeController;
-  Uint8List _ImageLogo;
+  Uint8List _imageLogo;
   String _welcomeMsg, _clientName;
 
   @override
@@ -30,7 +30,6 @@ class _WelcomeState extends State<Welcome> {
   void _initWelcome() {
     homeController = new HomeController();
     homeController.getLoginBD().then((loginModel) => {_processWelcome(loginModel)});
-    homeController.getWelcomeMsgByLang();
   }
 
   void _processWelcome(LoginModel loginModel) {
@@ -51,14 +50,12 @@ class _WelcomeState extends State<Welcome> {
     }
     homeController.setContractDetailModelList = contractDetailList;
     homeController.setContractDetailModel = contractDetailList.first;
-    homeController.getCompanyBD().then((ok) => {_processScreenInfo()});
+    _processScreenInfo();
     Timer(Duration(seconds: 2), () => MyNavigator.goToHome(context, homeController: homeController));
   }
 
   void _processScreenInfo() async {
     setState(() {
-      _ImageLogo = base64Decode(homeController.getCompanyModel.companyLogo);
-      _welcomeMsg = homeController.getWelcomeMsg;
       _clientName = MyConvert.stringToCamelCase(
           this.homeController.getContractDetailModel.client.name.substring(0, this.homeController.getContractDetailModel.client.name.indexOf(' ')));
     });
@@ -111,7 +108,7 @@ class _WelcomeState extends State<Welcome> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       //SizedBox(height: 20.0),
-                      _ImageLogo != null ? Image.memory(_ImageLogo, width: 220, alignment: Alignment.center) : new Container(),
+                      Image(image: AssetImage("assets/images/ic_logo_appstore.png"), width: 220, alignment: Alignment.center),
                       SizedBox(height: 20.0),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,

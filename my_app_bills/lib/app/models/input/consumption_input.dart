@@ -1,4 +1,4 @@
-import 'package:myutility/app/models/input/client_input.dart';
+import 'package:myAppBills/app/models/input/client_input.dart';
 
 class ConsumptionInput {
   String counterNumber;

@@ -1,16 +1,13 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myutility/app/controllers/login_controller.dart';
-import 'package:myutility/app/controllers/company_controller.dart';
-import 'package:myutility/app/models/company_model.dart';
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/my_navigator.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
+import 'package:myAppBills/app/controllers/company_controller.dart';
+import 'package:myAppBills/app/controllers/login_controller.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/my_navigator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'generated/l10n.dart';
 
@@ -22,8 +19,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   LoginController loginController;
   CompanyController companyController;
-  Uint8List _ImageLogo;
-
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   String _currLang;
 
@@ -36,36 +31,11 @@ class _SplashScreenState extends State<SplashScreen> {
     });
 
     companyController = new CompanyController();
-    companyController.getCompanyInfoFromService().then((companyModel) => {_processCompanyData(companyModel)});
-
+    companyController.getCompanyInfoFromService();
     loginController = new LoginController();
     loginController.getLoginBD().then((loginModel) => {_processLogin(loginModel)});
   }
 
-  void _processCompanyData(CompanyModel companyModel) async {
-    if (companyModel != null) {
-      setState(() {
-        _ImageLogo = base64Decode(companyModel.companyLogo);
-      });
-
-      _refreshCompanyInfo(companyModel);
-    }
-  }
-
-  /// renovar os dados da empresa aquando da nova inicializacao da app
-  void _refreshCompanyInfo(CompanyModel companyModel) {
-    companyController.deleteAllCompany();
-    companyController.deleteAllCompanyContact();
-    companyController.deleteAllCompanyLegalWarning();
-
-    companyController.saveCompany(companyModel);
-    for (int i = 0; i < companyModel.companyInfo.length; i++) {
-      companyController.saveCompanyContact(companyModel.companyInfo[i]);
-    }
-    for (int i = 0; i < companyModel.companyLegalWarning.length; i++) {
-      companyController.saveCompanyLegalWarning(companyModel.companyLegalWarning[i]);
-    }
-  }
 
   void _processLogin(LoginModel loginModel) async {
     if (loginModel != null && loginModel.remember) {
@@ -77,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       Timer(Duration(seconds: 3), () => MyNavigator.goToLogin(context));
     }
-    S.load(Locale(_currLang)); // iniciar com a linguagem guardada, se houver uma
+    S.load(Locale(_currLang));
   }
 
   @override
@@ -120,8 +90,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     SizedBox(height: 20.0),
-                    //Image(image: AssetImage('assets/images/logo_1_2.png'), width: 200),
-                    _ImageLogo != null ? Image.memory(_ImageLogo, width: 220, alignment: Alignment.center) : new Container()
+                    Image(image: AssetImage("assets/images/ic_logo_appstore.png"), width: 220, alignment: Alignment.center),
                   ],
                 ),
               ),

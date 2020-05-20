@@ -1,13 +1,11 @@
-import 'dart:convert';
-
-import 'package:myutility/app/models/input/reading_input.dart';
-import 'package:myutility/app/models/reading_model.dart';
-import 'package:myutility/app/models/send_reading_model.dart';
-import 'package:myutility/app/services/service_locator.dart';
-import 'package:myutility/utils/convert.dart';
-import 'package:myutility/utils/rest_api.dart';
-import 'package:myutility/utils/Constants.dart' as Constants;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:myAppBills/app/models/input/reading_input.dart';
+import 'package:myAppBills/app/models/reading_model.dart';
+import 'package:myAppBills/app/models/send_reading_model.dart';
+import 'package:myAppBills/app/services/service_locator.dart';
+import 'package:myAppBills/utils/Constants.dart' as Constants;
+import 'package:myAppBills/utils/convert.dart';
+import 'package:myAppBills/utils/rest_api.dart';
 
 
 class ReadingService {

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:myutility/utils/my_exception.dart';
+import 'package:myAppBills/utils/my_exception.dart';
 
 class Resource<T> {
   final String url;

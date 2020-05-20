@@ -1,10 +1,10 @@
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/models/contract_model.dart';
-import 'package:myutility/app/models/input/client_input.dart';
-import 'package:myutility/app/services/service_locator.dart';
-import 'package:myutility/utils/Constants.dart' as Constants;
-import 'package:myutility/utils/convert.dart';
-import 'package:myutility/utils/rest_api.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/models/contract_model.dart';
+import 'package:myAppBills/app/models/input/client_input.dart';
+import 'package:myAppBills/app/services/service_locator.dart';
+import 'package:myAppBills/utils/Constants.dart' as Constants;
+import 'package:myAppBills/utils/convert.dart';
+import 'package:myAppBills/utils/rest_api.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 

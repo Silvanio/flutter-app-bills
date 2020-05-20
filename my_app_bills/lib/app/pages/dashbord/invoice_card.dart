@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myutility/app/models/invoice_model.dart';
-import 'package:myutility/generated/l10n.dart';
-import 'package:myutility/style/home_style.dart';
-import 'package:myutility/utils/convert.dart';
+import 'package:myAppBills/app/models/invoice_model.dart';
+import 'package:myAppBills/generated/l10n.dart';
+import 'package:myAppBills/style/home_style.dart';
+import 'package:myAppBills/utils/convert.dart';
 
 class InvoiceCard extends Container {
 

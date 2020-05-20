@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myutility/components/my_label.dart';
+import 'package:myAppBills/components/my_label.dart';
 
 // ignore: must_be_immutable
 class MyButton extends StatelessWidget {

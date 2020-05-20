@@ -2,16 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myutility/app/controllers/consumption_controller.dart';
-import 'package:myutility/app/controllers/home_controller.dart';
-import 'package:myutility/app/controllers/reading_controller.dart';
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/models/invoice_model.dart';
-import 'package:myutility/app/models/meters_model.dart';
-import 'package:myutility/app/pages/dashbord/card_consumption.dart';
-import 'package:myutility/app/pages/dashbord/card_invoice_paid.dart';
-import 'package:myutility/app/pages/dashbord/card_invoice_unpaid.dart';
-import 'package:myutility/app/pages/readings/card_reading_history.dart';
+import 'package:myAppBills/app/controllers/company_controller.dart';
+import 'package:myAppBills/app/controllers/consumption_controller.dart';
+import 'package:myAppBills/app/controllers/home_controller.dart';
+import 'package:myAppBills/app/controllers/reading_controller.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/models/invoice_model.dart';
+import 'package:myAppBills/app/models/meters_model.dart';
+import 'package:myAppBills/app/pages/dashbord/card_consumption.dart';
+import 'package:myAppBills/app/pages/dashbord/card_invoice_paid.dart';
+import 'package:myAppBills/app/pages/dashbord/card_invoice_unpaid.dart';
+import 'package:myAppBills/app/pages/readings/card_reading_history.dart';
 
 class DashBord extends StatefulWidget {
   final HomeController homeController;
@@ -63,7 +64,6 @@ class _DashBordState extends State<DashBord> {
       _eventsConsumptions = new StreamController<MetersModel>();
       _eventsInvoicePaid = new StreamController<InvoiceModel>();
       _eventsInvoiceUnPaid = new StreamController<InvoiceModel>();
-      homeController.getCompanyCurrency();
       _getMeters();
       _getInvoices();
     }
@@ -77,7 +77,7 @@ class _DashBordState extends State<DashBord> {
     return StreamBuilder(
       stream: _eventsInvoiceUnPaid.stream,
       builder: (BuildContext context, snapshot) {
-        return CardInvoiceUnPaid(invoiceModel: snapshot.data, currency: homeController.getCurrency);
+        return CardInvoiceUnPaid(invoiceModel: snapshot.data, currency: CompanyController.currentCompany.currency);
       },
     );
   }
@@ -86,7 +86,7 @@ class _DashBordState extends State<DashBord> {
     return StreamBuilder(
       stream: _eventsInvoicePaid.stream,
       builder: (BuildContext context, snapshot) {
-        return CardInvoicePaid(invoiceModel: snapshot.data, currency: homeController.getCurrency);
+        return CardInvoicePaid(invoiceModel: snapshot.data, currency: CompanyController.currentCompany.currency);
       },
     );
   }
@@ -102,7 +102,7 @@ class _DashBordState extends State<DashBord> {
         consumptionController.setMetersModel = snapshot.data;
         consumptionController.setLoginModel = homeController.getLoginModel;
         consumptionController.setContractDetailModel = homeController.getContractDetailModel;
-        return  CardConsumption(consumptionController: consumptionController);
+        return CardConsumption(consumptionController: consumptionController);
       },
     );
   }
@@ -119,16 +119,17 @@ class _DashBordState extends State<DashBord> {
         readingController.setLoginModel = homeController.getLoginModel;
         readingController.setContractModel = homeController.getContractDetailModel;
         return Padding(
-            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 5), child: CardReadingHistory(readingController: readingController));
+            padding: EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 5),
+            child: CardReadingHistory(readingController: readingController));
       },
     );
   }
 
   void _getInvoices() {
     homeController.getLastInvoice().then((invoice) => {
-      _eventsInvoicePaid.add(invoice),
-      _eventsInvoiceUnPaid.add(invoice),
-    });
+          _eventsInvoicePaid.add(invoice),
+          _eventsInvoiceUnPaid.add(invoice),
+        });
   }
 
   void _getMeters() async {

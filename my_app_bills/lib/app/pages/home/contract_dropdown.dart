@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/generated/l10n.dart';
-import 'package:myutility/utils/convert.dart';
-import 'package:myutility/utils/type_contract.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/generated/l10n.dart';
+import 'package:myAppBills/utils/convert.dart';
+import 'package:myAppBills/utils/type_contract.dart';
 
 class ContractDropDown extends Container {
   final List<ContractDetailModel> list;

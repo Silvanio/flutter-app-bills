@@ -1,19 +1,19 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myutility/app/controllers/home_controller.dart';
-import 'package:myutility/app/controllers/invoice_controller.dart';
-import 'package:myutility/app/controllers/reading_controller.dart';
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/pages/home/contract_dropdown.dart';
-import 'package:myutility/app/pages/dashbord/dashbord.dart';
-import 'package:myutility/app/pages/home/menu.dart';
-import 'package:myutility/app/pages/invoices/invoice.dart';
-import 'package:myutility/app/pages/readings/readings.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/generated/l10n.dart';
+import 'package:myAppBills/app/controllers/company_controller.dart';
+import 'package:myAppBills/app/controllers/home_controller.dart';
+import 'package:myAppBills/app/controllers/invoice_controller.dart';
+import 'package:myAppBills/app/controllers/reading_controller.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/pages/dashbord/dashbord.dart';
+import 'package:myAppBills/app/pages/home/contract_dropdown.dart';
+import 'package:myAppBills/app/pages/home/menu.dart';
+import 'package:myAppBills/app/pages/invoices/invoice.dart';
+import 'package:myAppBills/app/pages/readings/readings.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/generated/l10n.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 
 ProgressDialog globalProgressDialog;
@@ -24,7 +24,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  HomeController homeController;  /// proveniente da class menu e MyNavigator, é passado por argumento
+  HomeController homeController;
   int _currentIndex;
   Widget _currentWidget;
 
@@ -58,7 +58,6 @@ class _HomeState extends State<Home> {
 
   void _createStateController() {
     homeController = ModalRoute.of(context).settings.arguments;
-    homeController.getCompanyBD();
     _currentIndex = 0;
     _currentWidget = DashBord(homeController: homeController);
     _getProgressBar();
@@ -120,9 +119,8 @@ class _HomeState extends State<Home> {
   }
 
   Widget _titleHome() {
-
     return MyLabel(
-        label: homeController.getCompanyModel.companyName,
+        label: CompanyController.currentCompany.companyName,
         fontFamily: MyLabel.MEDIUM,
         fontSize: 20,
         color: Color(0xff131315),
@@ -130,13 +128,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget getImageBanner() {
-    return homeController.getCompanyModel != null
-        ? Image.memory(
-      base64Decode(homeController.getCompanyModel.dashboardImg),
-      fit: BoxFit.fill,
-      height: 85,
-    )
-        : new Container();
+    return Image(image: AssetImage("assets/images/banner.png"), fit: BoxFit.fill, height: 85);
   }
 
   Widget _builderLeading() {
@@ -153,24 +145,6 @@ class _HomeState extends State<Home> {
           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
         );
       },
-    );
-  }
-
-
-  Widget _buildContractCardOutside() {
-    return Container(
-      height: 80.0,
-      alignment: Alignment.center,
-      child: Padding(
-          padding: EdgeInsets.only(left: 5, right: 10),
-          child: ContractDropDown(
-            list: homeController.getContractDetailModelList,
-            selected: homeController.getContractDetailModel,
-            onChanged: (ContractDetailModel newValue) {
-              FocusScope.of(context).requestFocus(new FocusNode());
-              _changeContract(newValue);
-            },
-          )),
     );
   }
 
@@ -219,13 +193,25 @@ class _HomeState extends State<Home> {
         selectedItemColor: Color(0xff1f414d),
         items: [
           BottomNavigationBarItem(
-              title: MyLabel(label: S.of(context).lbl_menu_home, fontFamily: MyLabel.MEDIUM, fontWeight: FontWeight.w500, fontSize: 14),
+              title: MyLabel(
+                  label: S.of(context).lbl_menu_home,
+                  fontFamily: MyLabel.MEDIUM,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14),
               icon: ImageIcon(new AssetImage("assets/images/ic_home.png"))),
           BottomNavigationBarItem(
-              title: MyLabel(label: S.of(context).lbl_menu_readings, fontFamily: MyLabel.MEDIUM, fontWeight: FontWeight.w500, fontSize: 14),
+              title: MyLabel(
+                  label: S.of(context).lbl_menu_readings,
+                  fontFamily: MyLabel.MEDIUM,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14),
               icon: ImageIcon(new AssetImage("assets/images/ic_reading.png"))),
           BottomNavigationBarItem(
-              title: MyLabel(label: S.of(context).lbl_menu_invoices, fontFamily: MyLabel.MEDIUM, fontWeight: FontWeight.w500, fontSize: 14),
+              title: MyLabel(
+                  label: S.of(context).lbl_menu_invoices,
+                  fontFamily: MyLabel.MEDIUM,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14),
               icon: ImageIcon(new AssetImage("assets/images/ic_invoices.png")))
         ],
       ),
@@ -256,5 +242,4 @@ class _HomeState extends State<Home> {
       globalProgressDialog.hide();
     });
   }
-
 }

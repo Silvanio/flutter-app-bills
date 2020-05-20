@@ -1,4 +1,4 @@
-import 'package:myutility/app/models/meters_model.dart';
+
 
 class ConsumptionModel {
 

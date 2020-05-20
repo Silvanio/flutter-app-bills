@@ -1,7 +1,7 @@
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/app/services/login_service.dart';
-import 'package:myutility/app/services/service_locator.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/app/services/login_service.dart';
+import 'package:myAppBills/app/services/service_locator.dart';
 
 class ContractsController {
   LoginModel _loginModel;

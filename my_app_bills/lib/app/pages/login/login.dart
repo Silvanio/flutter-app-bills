@@ -1,20 +1,18 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myutility/app/controllers/company_controller.dart';
-import 'package:myutility/app/controllers/login_controller.dart';
-import 'package:myutility/app/models/company_model.dart';
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/app/pages/login/login_LangDropdownMenu.dart';
-import 'package:myutility/app/pages/login/login_input_component.dart';
-import 'package:myutility/app/pages/login/login_button.dart';
-import 'package:myutility/generated/l10n.dart';
-import 'package:myutility/style/login_style.dart';
-import 'package:myutility/my_navigator.dart';
-import 'package:myutility/utils/convert.dart';
-import 'package:progress_dialog/progress_dialog.dart';
 import 'package:intl/intl.dart';
+import 'package:myAppBills/app/controllers/company_controller.dart';
+import 'package:myAppBills/app/controllers/login_controller.dart';
+import 'package:myAppBills/app/models/company_model.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/app/pages/login/login_LangDropdownMenu.dart';
+import 'package:myAppBills/app/pages/login/login_button.dart';
+import 'package:myAppBills/app/pages/login/login_input_component.dart';
+import 'package:myAppBills/generated/l10n.dart';
+import 'package:myAppBills/my_navigator.dart';
+import 'package:myAppBills/style/login_style.dart';
+import 'package:myAppBills/utils/convert.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
@@ -32,7 +30,6 @@ class _LoginScreenState extends State<Login> {
   ProgressDialog progressDialog;
 
   CompanyModel company;
-  Uint8List _ImageLogo;
 
   String _inputName, _inputPass;
   FocusNode _usernameFocusNode = FocusNode();
@@ -54,8 +51,6 @@ class _LoginScreenState extends State<Login> {
     loginController = new LoginController();
     loginController.getLoginBD().then((loginModel) => {_setSateLogin(loginModel)});
 
-    companyController = new CompanyController();
-    companyController.getCompanyBD().then((companyModel) => {_setImageLogo(companyModel)});
 
     _prefs.then((SharedPreferences prefs) {
       _currLang = (prefs.getString('currLang') ?? Intl.getCurrentLocale());
@@ -66,11 +61,6 @@ class _LoginScreenState extends State<Login> {
     }
   }
 
-  void _setImageLogo(CompanyModel company) {
-    setState(() {
-      _ImageLogo = MyConvert.stringToImageMemory(company.companyLogo);
-    });
-  }
 
   void _setSateLogin(LoginModel loginModel) {
     if (loginModel != null) {
@@ -168,8 +158,7 @@ class _LoginScreenState extends State<Login> {
                                     children: <Widget>[
                                       Center(
                                           child:
-                                          //Image(image: AssetImage('assets/images/logo_1_2.png'), width: 280,alignment: Alignment.center))
-                                          _ImageLogo == null ? new Container() : Image.memory(_ImageLogo, width: 220, alignment: Alignment.center))
+                                          Image(image: AssetImage("assets/images/ic_logo_appstore.png"), width: 220, alignment: Alignment.center))
                                     ],
                                   ),
                                 ),
@@ -196,7 +185,6 @@ class _LoginScreenState extends State<Login> {
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
                                         _buildLoginButton(context),
-                                        _buildBottomButtons(context)
                                       ],
                                     ),
                                 )
@@ -215,69 +203,6 @@ class _LoginScreenState extends State<Login> {
     );
   }
 
-  Widget _buildLostPassword(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: new GestureDetector(
-          onTap: () {
-            //Navigator.pushNamed(context, "myRoute");
-          },
-          child: Text(
-            S.of(context).lbl_forgot_password.toString().toUpperCase(),
-            maxLines: 1,
-            style: kTextStyleBoldUnderlinedBlack,
-          )),
-    );
-  }
-
-  Widget _buildBottomButtons(BuildContext context) {
-    return Center(
-      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        new GestureDetector(
-            onTap: () {
-              MyNavigator.goToLegalWarnings(context);
-            },
-            child: Text(
-              S.of(context).lbl_legal_warnings.toUpperCase(),
-              maxLines: 1,
-              style: kTextSyleWhite,
-            )),
-        new Text(" | ", style: TextStyle(color: Color(0xFFFFFFFF))),
-        new GestureDetector(
-            onTap: () {
-              MyNavigator.goToContacts(context);
-            },
-            child: Text(S.of(context).lbl_contacts.toUpperCase(), maxLines: 1, style: kTextSyleWhite)),
-
-        /// widget para ser usado depois
-        /*new Text(" | ", style: TextStyle(color: Color(0xFFFFFFFF))),
-        new GestureDetector(
-          onTap: () {
-            //Navigator.pushNamed(context, "myRoute");
-          },
-          child: Text(
-            S.of(context).lbl_help.toString().toUpperCase(),
-            maxLines: 1,
-            style: kTextSyleWhite
-          ),
-        )*/
-      ]),
-    );
-  }
-
-  Widget _buildSignUpButtons(BuildContext context) {
-    return Center(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        new Text(S.of(context).lbl_not_reg_yet.toString().toUpperCase(), maxLines: 1, style: kTextStyleBoldBlack),
-        new SizedBox(height: 10.0),
-        new GestureDetector(
-            onTap: () {
-              //Navigator.pushNamed(context, "myRoute");
-            },
-            child: Text(S.of(context).lbl_signUp.toString().toUpperCase(), maxLines: 1, style: kTextStyleBoldUnderlinedBlack)),
-      ]),
-    );
-  }
 
   Widget _buildErrorMsg(BuildContext context) {
     return Text(MyConvert.stringToCamelCase(S.of(context).lbl_login_err), style: _isValidLogin == true ? kTextSyleTransparent : kTextSyleRed);
@@ -378,34 +303,6 @@ class _LoginScreenState extends State<Login> {
       },
     );
   }
-
-  Widget _buildRememberMeCheckbox() {
-    return Container(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-              value: loginController.getLoginModel.remember,
-              checkColor: Color(0xFF398AE5),
-              activeColor: Colors.white,
-              onChanged: (value) {
-                setState(() {
-                  loginController.getLoginModel.remember = value;
-                });
-              },
-            ),
-          ),
-          Text(
-            S.of(context).lbl_remember_pass,
-            style: kLabelStyle,
-          ),
-        ],
-      ),
-    );
-  }
-
   void _createPopupDialog() {
     progressDialog = new ProgressDialog(context, type: ProgressDialogType.Normal);
     progressDialog.style(

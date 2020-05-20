@@ -27,13 +27,6 @@ class MyNavigator {
     Navigator.pushNamed(context, "/invoice_detail", arguments: invoiceController);
   }
 
-  static void goToContacts(BuildContext context) {
-    Navigator.pushNamed(context, "/contacts");
-  }
-
-  static void goToLegalWarnings(BuildContext context) {
-    Navigator.pushNamed(context, "/legalWarnings");
-  }
 
   static void goToSettings(BuildContext context, {contractsController}) {
     Navigator.pushNamed(context, "/settings", arguments: contractsController);

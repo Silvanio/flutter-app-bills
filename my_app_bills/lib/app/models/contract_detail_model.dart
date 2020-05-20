@@ -1,5 +1,5 @@
-import 'package:myutility/app/models/address_model.dart';
-import 'package:myutility/app/models/contract_model.dart';
+import 'package:myAppBills/app/models/address_model.dart';
+import 'package:myAppBills/app/models/contract_model.dart';
 
 class ContractDetailModel {
 

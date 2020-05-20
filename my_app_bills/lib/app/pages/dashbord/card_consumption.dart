@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:myutility/app/controllers/consumption_controller.dart';
-import 'package:myutility/app/models/contract_detail_model.dart';
-import 'package:myutility/app/models/month_select_model.dart';
-import 'package:myutility/app/pages/dashbord/chart_trend_consumption.dart';
-import 'package:myutility/components/my_month_drop_down.dart';
-import 'package:myutility/components/my_card.dart';
-import 'package:myutility/components/my_label.dart';
-import 'package:myutility/generated/l10n.dart';
-import 'package:myutility/utils/type_unit.dart';
+import 'package:myAppBills/app/controllers/consumption_controller.dart';
+import 'package:myAppBills/app/models/contract_detail_model.dart';
+import 'package:myAppBills/app/models/month_select_model.dart';
+import 'package:myAppBills/app/pages/dashbord/chart_trend_consumption.dart';
+import 'package:myAppBills/components/my_month_drop_down.dart';
+import 'package:myAppBills/components/my_card.dart';
+import 'package:myAppBills/components/my_label.dart';
+import 'package:myAppBills/generated/l10n.dart';
+import 'package:myAppBills/utils/type_unit.dart';
 
 class CardConsumption extends StatefulWidget {
   final ConsumptionController consumptionController;

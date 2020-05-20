@@ -1,5 +1,5 @@
-import 'package:myutility/app/models/address_model.dart';
-import 'package:myutility/utils/convert.dart';
+import 'package:myAppBills/app/models/address_model.dart';
+import 'package:myAppBills/utils/convert.dart';
 
 class ContractModel {
    String accountNumber;

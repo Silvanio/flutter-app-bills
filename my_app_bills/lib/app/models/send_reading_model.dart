@@ -1,5 +1,5 @@
-import 'package:myutility/app/models/input/client_input.dart';
-import 'package:myutility/app/models/reading_model.dart';
+import 'package:myAppBills/app/models/input/client_input.dart';
+import 'package:myAppBills/app/models/reading_model.dart';
 
 class SendReadingModel {
   ClientInput client;

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myutility/app/models/company_model.dart';
-import 'package:myutility/app/models/login_model.dart';
-import 'package:myutility/app/services/company_service.dart';
-import 'package:myutility/app/services/login_service.dart';
-import 'package:myutility/app/services/service_locator.dart';
+import 'package:myAppBills/app/models/company_model.dart';
+import 'package:myAppBills/app/models/login_model.dart';
+import 'package:myAppBills/app/services/login_service.dart';
+import 'package:myAppBills/app/services/service_locator.dart';
 
 class LoginController {
   final formKey = GlobalKey<FormState>();
@@ -11,15 +10,8 @@ class LoginController {
   LoginModel _loginModel;
   CompanyModel _companyModel;
 
-  List<CompanyModel> _companyList;
-
   LoginController() {
     _loginModel = new LoginModel(remember: true, company: "");
-    //_companyList = new List<CompanyModel>();
-  }
-
-  Future<List<CompanyModel>> listAllCompany() {
-    return getIt<CompanyService>().listAllCompany();
   }
 
   Future<void> executeLogin() {
@@ -38,15 +30,9 @@ class LoginController {
     getIt<LoginService>().save(_loginModel).then((res) => {print(res)});
   }
 
-  //List<CompanyModel> get getCompanyList => _companyList;
-
   LoginModel get getLoginModel => _loginModel;
 
   CompanyModel get getCompanyModel => _companyModel;
-
-  /*set setCompanyList(List<CompanyModel> value) {
-    _companyList = value;
-  }*/
 
   set setLoginModel(LoginModel value) {
     _loginModel = value;
