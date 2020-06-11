@@ -108,7 +108,7 @@ class _WelcomeState extends State<Welcome> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       //SizedBox(height: 20.0),
-                      Image(image: AssetImage("assets/images/ic_logo_appstore.png"), width: 220, alignment: Alignment.center),
+                      Image(image: AssetImage("assets/images/ic_logo.png"), width: 150, alignment: Alignment.center),
                       SizedBox(height: 20.0),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,

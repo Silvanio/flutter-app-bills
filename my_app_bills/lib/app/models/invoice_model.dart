@@ -5,7 +5,7 @@ class InvoiceModel {
   double iva;
   double othersValues;
   double rates;
-  DateTime deedLinePayment; // por pagar  data limite pagamento
+  DateTime deadlinePayment; // por pagar  data limite pagamento
   DateTime issueDate; // data emissão (Sempre aparecer)
   double factors;
   String invoiceNumber;
@@ -18,7 +18,7 @@ class InvoiceModel {
       this.iva,
       this.othersValues,
       this.rates,
-      this.deedLinePayment,
+      this.deadlinePayment,
       this.issueDate,
       this.factors,
       this.invoiceNumber,
@@ -32,7 +32,7 @@ class InvoiceModel {
         iva: json['iva'],
         othersValues: json['othersValues'],
         rates: json['rates'],
-        deedLinePayment: json['deedlinePayment'] != null ? DateTime.parse(json['deedlinePayment']) : null,
+        deadlinePayment: json['deadlinePayment'] != null ? DateTime.parse(json['deadlinePayment']) : null,
         issueDate: json['issueDate'] != null ? DateTime.parse(json['issueDate']) : null,
         factors: json['factors'],
         invoiceNumber: json['invoiceNumber'],

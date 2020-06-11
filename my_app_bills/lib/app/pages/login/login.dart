@@ -158,7 +158,7 @@ class _LoginScreenState extends State<Login> {
                                     children: <Widget>[
                                       Center(
                                           child:
-                                          Image(image: AssetImage("assets/images/ic_logo_appstore.png"), width: 220, alignment: Alignment.center))
+                                          Image(image: AssetImage("assets/images/ic_logo.png"), width: 150, alignment: Alignment.center))
                                     ],
                                   ),
                                 ),

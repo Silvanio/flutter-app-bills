@@ -60,7 +60,7 @@ class CardUnPaid extends Container {
           SizedBox(height: 10),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              MyLabel(label: S.of(_context).msg_payment_until(MyConvert.formatDate(invoiceModel.deedLinePayment)), fontFamily: MyLabel.LIGHT,
+              MyLabel(label: S.of(_context).msg_payment_until(MyConvert.formatDate(invoiceModel.deadlinePayment)), fontFamily: MyLabel.LIGHT,
                   fontSize: 12, fontWeight: FontWeight.w300),
               MyLabel(label: S.of(_context).lbl_waiting_payment, fontFamily: MyLabel.REGULAR, fontWeight: FontWeight.w500 ,fontSize: 14, color: Color(0xffe61739))
             ],
@@ -95,7 +95,7 @@ class CardUnPaid extends Container {
               children: <Widget>[
                 MyLabel(label: S.of(_context).msg_issue_on(MyConvert.formatDate(invoiceModel.issueDate)), fontFamily: MyLabel.LIGHT, fontSize: 10.5, fontWeight: FontWeight.w300),
                 MyLabel(
-                    label: S.of(_context).msg_pay_until(MyConvert.formatDate(invoiceModel.deedLinePayment)), fontFamily: MyLabel.LIGHT, fontSize: 10.5, fontWeight: FontWeight.w300)
+                    label: S.of(_context).msg_pay_until(MyConvert.formatDate(invoiceModel.deadlinePayment)), fontFamily: MyLabel.LIGHT, fontSize: 10.5, fontWeight: FontWeight.w300)
               ],
             )
           ],

@@ -21,7 +21,7 @@ class InvoiceCard extends Container {
     String liquidated = invoiceModel.isLiquidated ? S.of(context).lbl_paid : S.of(context).lbl_waiting_payment;
     String issueDate = MyConvert.formatDate(invoiceModel.issueDate);
     String lblPayment = invoiceModel.isLiquidated ? S.of(context).lbl_payment_date : S.of(context).lbl_payment_deedLine;
-    DateTime datePayment = invoiceModel.isLiquidated ? invoiceModel.paymentData.finishDate : invoiceModel.deedLinePayment;
+    DateTime datePayment = invoiceModel.isLiquidated ? invoiceModel.paymentData.finishDate : invoiceModel.deadlinePayment;
     String datePaymentFormat = MyConvert.formatDate(datePayment);
 
     return Container(

@@ -40,7 +40,7 @@ class CardInvoiceUnPaid extends Container {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           MyLabel(label: S.of(_context).lbl_open_value.toUpperCase(), fontFamily: MyLabel.LIGHT, fontSize: 18, fontWeight: FontWeight.w300),
-          MyLabel(label: S.of(_context).msg_payment_until(MyConvert.formatDate(invoiceModel.deedLinePayment)), fontFamily: MyLabel.LIGHT,
+          MyLabel(label: S.of(_context).msg_payment_until(MyConvert.formatDate(invoiceModel.deadlinePayment)), fontFamily: MyLabel.LIGHT,
               fontSize: 12, fontWeight: FontWeight.w300),
           Row(
             children: <Widget>[
@@ -76,7 +76,7 @@ class CardInvoiceUnPaid extends Container {
               children: <Widget>[
                 MyLabel(label: S.of(_context).msg_issue_on(MyConvert.formatDate(invoiceModel.issueDate)), fontFamily: MyLabel.LIGHT, fontSize: 10.5, fontWeight: FontWeight.w300),
                 MyLabel(
-                    label: S.of(_context).msg_payment_until(MyConvert.formatDate(invoiceModel.deedLinePayment)), fontFamily: MyLabel.LIGHT, fontSize: 10.5, fontWeight: FontWeight.w300)
+                    label: S.of(_context).msg_payment_until(MyConvert.formatDate(invoiceModel.deadlinePayment)), fontFamily: MyLabel.LIGHT, fontSize: 10.5, fontWeight: FontWeight.w300)
               ],
             )
           ],
