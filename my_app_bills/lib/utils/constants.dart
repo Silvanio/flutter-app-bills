@@ -7,7 +7,7 @@ const String nameApp = "myUtility";
 const String api_companyid = "79";
 
 //BASE API
-const String rest_api = "http://cgiuclouddevap2.ptinfra.com:28081/eu-api/services/";
+const String rest_api = "http://localhost:8080/eu-api/services/";
 
 //Auth
 const String api_auth = rest_api + "resources/auth";
