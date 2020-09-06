@@ -1,7 +1,7 @@
 library constants;
 
 //Name APP
-const String nameApp = "myUtility";
+const String nameApp = "myAppBils";
 
 // COMPANY_ID para chamar o serviço dados da empresa
 const String api_companyid = "79";

@@ -1,4 +1,4 @@
-package pt.com.cgi.myutility
+package pt.com.app.myutility
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
